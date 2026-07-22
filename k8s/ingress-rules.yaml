@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: semtech-ingress
+  name: demo-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: / # Rewrite the URL path to the root of the backend service
     #nginx.ingress.kubernetes.io/force-ssl-redirect: "true" # Force redirect to HTTPS
@@ -12,11 +12,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /semtech
-        pathType: Prefix # Match all paths starting with "/semtech"
+      - path: /demo
+        pathType: Prefix # Match all paths starting with "/demo"
         backend:
           service:
-            name: semtech-service
+            name: demo-service
             port:
               number: 80
 
